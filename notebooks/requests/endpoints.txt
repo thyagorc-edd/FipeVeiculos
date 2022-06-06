@@ -1,0 +1,70 @@
+
+0 -Consultar Tabelas de Referência
+https://veiculos.fipe.org.br/api/veiculos//ConsultarTabelaDeReferencia
+
+
+1 - Consultar Marcas
+https://veiculos.fipe.org.br/api/veiculos//ConsultarMarcas
+Bodyform-data
+codigoTabelaReferencia
+285
+codigoTipoVeiculo
+1
+
+2 - ConsultarModelos
+https://veiculos.fipe.org.br/api/veiculos//ConsultarModelos
+Make things easier for your teammates with a complete request description.
+Bodyform-data
+codigoTipoVeiculo
+1
+codigoTabelaReferencia
+286
+codigoModelo
+codigoMarca
+156
+ano
+codigoTipoCombustivel
+anoModelo
+modeloCodigoExterno
+
+POST
+3 - consultaAnoModelo
+https://veiculos.fipe.org.br/api/veiculos//ConsultarAnoModelo
+Make things easier for your teammates with a complete request description.
+Bodyform-data
+codigoTipoVeiculo
+1
+codigoTabelaReferencia
+286
+codigoModelo
+6563
+codigoMarca
+156
+ano
+codigoTipoCombustivel
+anoModelo
+modeloCodigoExterno
+
+
+POST
+5 - https://veiculos.fipe.org.br/api/veiculos//ConsultarValorComTodosParametros
+https://veiculos.fipe.org.br/api/veiculos//ConsultarValorComTodosParametros
+Make things easier for your teammates with a complete request description.
+Bodyform-data
+codigoTabelaReferencia
+286
+codigoMarca
+156
+codigoModelo
+6563
+codigoTipoVeiculo
+1
+anoModelo
+2014
+codigoTipoCombustivel
+1
+tipoVeiculo
+carro
+modeloCodigoExterno
+tipoConsulta
+tradicional
