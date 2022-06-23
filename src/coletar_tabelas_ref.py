@@ -4,6 +4,9 @@ import urllib3
 import json
 import requests
 import os
+import time
+import asyncio
+import aiohttp
 
 dataPath = 'data/'
 
@@ -152,3 +155,4 @@ for row in dfComAnosModelos.index:
     print( f'gravando tabela {codigotabela},  marca {codigoMarca} e modelo {codigoModelo} e ano {ano}')
 
 dfComTodosOsParametros.to_csv(dataPath+'/DatasetFinal.csv', index=False, header=True)
+
