@@ -20,7 +20,7 @@ if os.path.exists(dataPath) == False:
     os.mkdir(dataPath)
 
 tabelas = df.head(1)
-#df.to_csv(dataPath+'/dadosTabelas.csv', index=False, header=True)
+df.to_csv(dataPath+'/dadosTabelas.csv', index=False, header=True)
 
 
 #tabelas = pd.read_csv(dataPath+'dadosTabelas.csv', nrows=10) ## nrows define o numero de linhas para leitura. Para testes, utilizaremos 10 linhas enquanto escrevemos o código
