@@ -1,3 +1,4 @@
+from email.header import Header
 import aiohttp
 import asyncio
 import pandas as pd
@@ -36,7 +37,12 @@ if __name__ == '__main__':
     
     start = perf_counter()
     results = asyncio.run(get_final_data(url, ids))
-    
-    
+    dataList = list(data)
+
+    df = pd.DataFrame(
+    dataList, columns=['Name', 'M-cap', 'Internet Companies'])
+    print(df)
+    df=pd.DataFrame.from_records(results)
+    df.to_csv('dadosAsync.csv',index=False, header=True)
     stop = perf_counter()
     print(stop - start)
