@@ -3,6 +3,8 @@ import aiohttp
 import asyncio
 import pandas as pd
 from time import perf_counter
+import json
+import numpy as np
 
 dataPath = 'data/'
 
@@ -31,18 +33,25 @@ async def get_final_data(url, ids):
 
 if __name__ == '__main__':
     url = 'https://veiculos.fipe.org.br/api/veiculos//ConsultarMarcas'
-    df = pd.read_csv(dataPath+'dadosTabelas.csv')
+    df = pd.read_csv(dataPath+'dadosTabelas.csv').head(2)
     lista_de_tabelas = df['Codigo'].values.tolist()
     ids = lista_de_tabelas
     
     start = perf_counter()
     results = asyncio.run(get_final_data(url, ids))
-    dataList = list(data)
-
-    df = pd.DataFrame(
-    dataList, columns=['Name', 'M-cap', 'Internet Companies'])
+    
+    labelValue = results[0]
+    codTabela  = results[1]
+    df1 = pd.DataFrame(labelValue)
+    df2 = pd.DataFrame(codTabela)
+    
+    df = pd.DataFrame([labelValue,codTabela]).T.add_prefix('col')
+    df = df.explode('col0')
     print(df)
-    df=pd.DataFrame.from_records(results)
-    df.to_csv('dadosAsync.csv',index=False, header=True)
+    
+
+
+    # df=pd.DataFrame.from_records(results)
+    # df.to_csv('dadosAsync.csv',index=False, header=True)
     stop = perf_counter()
     print(stop - start)
